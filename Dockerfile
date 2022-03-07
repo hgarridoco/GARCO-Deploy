@@ -64,7 +64,7 @@ RUN set -x; \
 
 # Install firebase-admin system dependency
 RUN set -x; \
-        curl -o grpcio.deb -sSL http://ftp.de.debian.org/debian/pool/main/g/grpc/python3-grpcio_1.26.0-2+b1_amd64.deb \
+        curl -o grpcio.deb -sSL http://ftp.de.debian.org/debian/pool/main/g/grpc/python3-grpcio_1.30.2-3+b3_amd64.deb \
         && dpkg --force-depends -i grpcio.deb \
         && rm -rf grpcio.deb
 
