@@ -10,6 +10,10 @@
 	path = addons/OCA/account-financial-reporting
 	url = https://github.com/OCA/account-financial-reporting.git
 	branch = 15.0
+[submodule "addons/OCA/account-financial-tools"]
+	path = addons/OCA/account-financial-tools
+	url = https://github.com/OCA/account-financial-tools.git
+	branch = 15.0
 [submodule "addons/OCA/account-invoice-reporting"]
 	path = addons/OCA/account-invoice-reporting
 	url = https://github.com/OCA/account-invoice-reporting.git
@@ -33,6 +37,10 @@
 [submodule "addons/OCA/bank-statement-import"]
 	path = addons/OCA/bank-statement-import
 	url = https://github.com/OCA/bank-statement-import.git
+	branch = 15.0
+[submodule "addons/OCA/commission"]
+	path = addons/OCA/commission
+	url = https://github.com/OCA/commission.git
 	branch = 15.0
 [submodule "addons/OCA/connector"]
 	path = addons/OCA/connector
@@ -78,6 +86,10 @@
 	path = addons/OCA/product-attribute
 	url = https://github.com/OCA/product-attribute.git
 	branch = 15.0
+[submodule "addons/OCA/product-variant"]
+	path = addons/OCA/product-variant
+	url = https://github.com/OCA/product-variant.git
+	branch = 15.0
 [submodule "addons/OCA/project"]
 	path = addons/OCA/project
 	url = https://github.com/OCA/project.git
@@ -101,6 +113,10 @@
 [submodule "addons/OCA/sale-workflow"]
 	path = addons/OCA/sale-workflow
 	url = https://github.com/OCA/sale-workflow.git
+	branch = 15.0
+[submodule "addons/OCA/server-tools"]
+	path = addons/OCA/server-tools
+	url = https://github.com/OCA/server-tools.git
 	branch = 15.0
 [submodule "addons/OCA/server-ux"]
 	path = addons/OCA/server-ux
@@ -133,32 +149,4 @@
 [submodule "addons/OCA/web"]
 	path = addons/OCA/web
 	url = https://github.com/OCA/web.git
-	branch = 15.0
-[submodule "addons/OCA/account-financial-tools"]
-	path = addons/OCA/account-financial-tools
-	url = https://github.com/OCA/account-financial-tools.git
-	branch = 15.0
-[submodule "addons/OCA/commission"]
-	path = addons/OCA/commission
-	url = https://github.com/OCA/commission.git
-	branch = 15.0
-[submodule "addons/OCA/product-variant"]
-	path = addons/OCA/product-variant
-	url = https://github.com/OCA/product-variant.git
-	branch = 15.0
-[submodule "addons/OCA/server-tools"]
-	path = addons/OCA/server-tools
-	url = https://github.com/OCA/server-tools.git
-	branch = 15.0
-[submodule "addons/OCA/community-data-files"]
-	path = addons/OCA/community-data-files
-	url = https://github.com/OCA/community-data-files.git
-	branch = 15.0
-[submodule "addons/OCA/mis-builder"]
-	path = addons/OCA/mis-builder
-	url = https://github.com/OCA/mis-builder.git
-	branch = 15.0
-[submodule "addons/OCA/contract"]
-	path = addons/OCA/contract
-	url = https://github.com/OCA/contract.git
 	branch = 15.0
