@@ -11,3 +11,17 @@ Repository to generate Odoo container and run postgres container
     git submodule update --init --recursive
     docker-compose up -d --build
 ```
+
+### Add customer submodules
+
+First need to generate ssh key to add to settings
+```bash 
+    ssh-keygen -t ed25519 -C "hector.garrido@garcoconsulting.es"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    cat ~/.ssh/id_ed25519.pub 
+```
+Then add customer repository like submodule 
+```bash
+    git submodule add https://github.com/hgarridoco/repourl -b 15.0
+```
