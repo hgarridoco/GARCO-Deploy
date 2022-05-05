@@ -18,3 +18,5 @@ mock
 pyzbar
 pdf2image
 unidecode
+# base_rabbit_connector
+pika
