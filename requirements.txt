@@ -21,3 +21,4 @@ unidecode
 # base_rabbit_connector
 pika
 xlrd>=1.0.0
+pycountry
