@@ -162,3 +162,7 @@
 	path = addons/OCA/community-data-files
 	url = https://github.com/OCA/community-data-files.git
 	branch = 15.0
+[submodule "addons/OCA/helpdesk"]
+	path = addons/OCA/helpdesk
+	url = https://github.com/OCA/helpdesk.git
+	branch = 15.0
