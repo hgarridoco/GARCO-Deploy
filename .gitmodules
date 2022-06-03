@@ -166,3 +166,7 @@
 	path = addons/OCA/helpdesk
 	url = https://github.com/OCA/helpdesk.git
 	branch = 15.0
+[submodule "addons/OCA/edi"]
+	path = addons/OCA/edi
+	url = https://github.com/OCA/edi.git
+	branch = 15.0
