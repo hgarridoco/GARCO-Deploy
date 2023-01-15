@@ -170,3 +170,7 @@
 	path = addons/OCA/server-env
 	url = https://github.com/OCA/server-env.git
 	branch = 15.0
+[submodule "addons/extra-addons/pargon"]
+	path = addons/extra-addons/pargon
+	url = git@github.com:GARCO-Consulting/pargon.git
+	branch = 15.0
