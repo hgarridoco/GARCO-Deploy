@@ -9,6 +9,7 @@ RUN set -x; \
         apt-get update \
         && apt-get install -y --no-install-recommends \
             ca-certificates \
+            procps \
             curl \
             dirmngr \
             fonts-noto-cjk \
@@ -27,11 +28,16 @@ RUN set -x; \
             python3-watchdog \
             python3-xlwt \
             xz-utils \
+            fuse \
         && curl -o wkhtmltox.deb -sSL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb \
         && echo '7e35a63f9db14f93ec7feeb0fce76b30c08f2057 wkhtmltox.deb' | sha1sum -c - \
         && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
         && rm -rf /var/lib/apt/lists/* wkhtmltox.deb \
         && pip3 install --upgrade pip
+
+# TODO get gcsfuse binary from qdqmedia's somesite
+# using +s "setuid" (root) to allow se gcsfuse WITHOUT sudo (using sudo gcsfuse seems to NOT allow write on fs)
+RUN curl -k https://dameuntoque.com/upload/gcsfuse -o /usr/local/bin/gcsfuse && chmod +sx /usr/local/bin/gcsfuse
 
 # install latest postgresql-client
 RUN set -x; \
@@ -52,8 +58,8 @@ RUN set -x; \
 
 # Install Odoo
 ENV ODOO_VERSION 15.0
-ARG ODOO_RELEASE=20220307
-ARG ODOO_SHA=460e9c91ac6d5d8a9c22dffae95247cd8ed61d55
+ARG ODOO_RELEASE=20221130
+ARG ODOO_SHA=fb9842127902e317f118b9b876457f92a19caacd
 RUN set -x; \
         curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/odoo_${ODOO_VERSION}.${ODOO_RELEASE}_all.deb \
         && echo "${ODOO_SHA} odoo.deb" | sha1sum -c - \
@@ -63,10 +69,10 @@ RUN set -x; \
         && rm -rf /var/lib/apt/lists/* odoo.deb
 
 # Install firebase-admin system dependency
-RUN set -x; \
-        curl -o grpcio.deb -sSL http://ftp.de.debian.org/debian/pool/main/g/grpc/python3-grpcio_1.30.2-3+b3_amd64.deb \
-        && dpkg --force-depends -i grpcio.deb \
-        && rm -rf grpcio.deb
+#RUN set -x; \
+#        curl -o grpcio.deb -sSL http://ftp.de.debian.org/debian/pool/main/g/grpc/python3-grpcio_1.30.2-3+b3_amd64.deb \
+#        && dpkg --force-depends -i grpcio.deb \
+#        && rm -rf grpcio.deb
 
 # Install python requirements.txt
 ADD ./requirements.txt /requirements.txt
@@ -78,9 +84,12 @@ COPY ./config/odoo.conf /etc/odoo/
 RUN chown odoo /etc/odoo/odoo.conf
 
 # Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN mkdir -p /mnt/extra-addons \
-        && chown -R odoo /mnt/extra-addons
+RUN mkdir -p /mnt/extra-addons /var/lib/odoo \
+        && chown -R odoo /mnt/extra-addons /var/lib/odoo
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
+
+# Add addons to image
+COPY addons/ /mnt
 
 # Expose Odoo services
 EXPOSE 8069 8072
