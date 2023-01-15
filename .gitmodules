@@ -154,10 +154,6 @@
 	path = addons/community-addons/muk_web
 	url = https://github.com/muk-it/muk_web.git
 	branch = 15.0
-[submodule "addons/extra-addons/qdq"]
-	path = addons/extra-addons/qdq
-	url = git@github.com:hgarridoco/QDQ.git
-	branch = 15.0
 [submodule "addons/OCA/community-data-files"]
 	path = addons/OCA/community-data-files
 	url = https://github.com/OCA/community-data-files.git
