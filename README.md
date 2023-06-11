@@ -23,5 +23,5 @@ First need to generate ssh key to add to settings
 ```
 Then add customer repository like submodule 
 ```bash
-    git submodule add https://github.com/hgarridoco/repourl -b 15.0
+    git submodule add https://github.com/hgarridoco/repourl -b 16.0
 ```
